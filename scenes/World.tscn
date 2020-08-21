@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=1]
+[gd_scene load_steps=7 format=1]
 
 [ext_resource path="res://player.gd" type="Script" id=1]
 [ext_resource path="res://scenes/1.1 GodotSpriteSheet.png.tex" type="Texture" id=2]
@@ -14,13 +14,19 @@ extents = Vector2( 7.14285, 11.5514 )
 custom_solver_bias = 0.0
 extents = Vector2( 352.093, 5.46808 )
 
+[sub_resource type="RectangleShape2D" id=3]
+
+custom_solver_bias = 0.0
+extents = Vector2( 23.0728, 10 )
+
 [node name="World" type="Node2D"]
 
 [node name="KinematicBody2D" type="KinematicBody2D" parent="."]
 
+editor/display_folded = true
 input/pickable = false
 shapes/0/shape = SubResource( 1 )
-shapes/0/transform = Matrix32( 1, 0, 0, 1, 199.548, 348.261 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 200.494, 348.261 )
 shapes/0/trigger = false
 collision/layers = 1
 collision/mask = 1
@@ -35,7 +41,7 @@ hframes = 20
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D"]
 
-transform/pos = Vector2( 199.548, 348.261 )
+transform/pos = Vector2( 200.494, 348.261 )
 transform/scale = Vector2( 1, 1 )
 shape = SubResource( 1 )
 trigger = false
@@ -43,7 +49,7 @@ _update_shape_index = 0
 
 [node name="Camera2D" type="Camera2D" parent="KinematicBody2D"]
 
-transform/pos = Vector2( 314.928, 188.295 )
+transform/pos = Vector2( 321.55, 185.457 )
 anchor_mode = 1
 rotating = false
 current = true
@@ -1627,11 +1633,165 @@ frame = 2
 
 [node name="Bricks" type="Node2D" parent="."]
 
-[node name="Sprite" type="Sprite" parent="Bricks"]
+transform/pos = Vector2( 194.893, 246.988 )
+transform/scale = Vector2( 1, 0.938983 )
 
-transform/pos = Vector2( 202.462, 288.688 )
+[node name="brick" type="Sprite" parent="Bricks"]
+
+transform/pos = Vector2( 16.7135, 48.3368 )
+transform/scale = Vector2( -2.12869, 1.45697 )
 texture = ExtResource( 3 )
 vframes = 2
 hframes = 2
+
+[node name="brick1" type="Sprite" parent="Bricks"]
+
+transform/pos = Vector2( 83.7135, 48.3368 )
+transform/scale = Vector2( -2.12869, 1.45697 )
+texture = ExtResource( 3 )
+vframes = 2
+hframes = 2
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Bricks"]
+
+transform/pos = Vector2( 95.0814, 153.265 )
+input/pickable = false
+shapes/0/shape = SubResource( 3 )
+shapes/0/transform = Matrix32( 0.727755, 0, 0, 1.2924, -79.0757, -106.191 )
+shapes/0/trigger = false
+shapes/1/shape = SubResource( 3 )
+shapes/1/transform = Matrix32( 0.727755, 0, 0, 1.2924, -11.1297, -106.192 )
+shapes/1/trigger = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bricks/StaticBody2D"]
+
+transform/pos = Vector2( -79.0757, -106.191 )
+transform/scale = Vector2( 0.727755, 1.2924 )
+shape = SubResource( 3 )
+trigger = false
+_update_shape_index = 0
+
+[node name="CollisionShape2D1" type="CollisionShape2D" parent="Bricks/StaticBody2D"]
+
+transform/pos = Vector2( -11.1297, -106.192 )
+transform/scale = Vector2( 0.727755, 1.2924 )
+shape = SubResource( 3 )
+trigger = false
+_update_shape_index = 1
+
+[node name="Bricks 1" type="Node2D" parent="."]
+
+editor/display_folded = true
+transform/pos = Vector2( 227.893, 246.988 )
+transform/scale = Vector2( 1, 0.938983 )
+
+[node name="brick" type="Sprite" parent="Bricks 1"]
+
+transform/pos = Vector2( 16.7135, 48.3368 )
+transform/scale = Vector2( -2.12869, 1.45697 )
+texture = ExtResource( 3 )
+vframes = 2
+hframes = 2
+
+[node name="brick1" type="Sprite" parent="Bricks 1"]
+
+transform/pos = Vector2( 83.7135, 48.3368 )
+transform/scale = Vector2( -2.12869, 1.45697 )
+texture = ExtResource( 3 )
+vframes = 2
+hframes = 2
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Bricks 1"]
+
+transform/pos = Vector2( 95.0814, 153.265 )
+input/pickable = false
+shapes/0/shape = SubResource( 3 )
+shapes/0/transform = Matrix32( 0.727755, 0, 0, 1.2924, -78.1297, -106.192 )
+shapes/0/trigger = false
+shapes/1/shape = SubResource( 3 )
+shapes/1/transform = Matrix32( 0.727755, 0, 0, 1.2924, -11.1297, -106.192 )
+shapes/1/trigger = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bricks 1/StaticBody2D"]
+
+transform/pos = Vector2( -78.1297, -106.192 )
+transform/scale = Vector2( 0.727755, 1.2924 )
+shape = SubResource( 3 )
+trigger = false
+_update_shape_index = 0
+
+[node name="CollisionShape2D1" type="CollisionShape2D" parent="Bricks 1/StaticBody2D"]
+
+transform/pos = Vector2( -11.1297, -106.192 )
+transform/scale = Vector2( 0.727755, 1.2924 )
+shape = SubResource( 3 )
+trigger = false
+_update_shape_index = 1
+
+[node name="Bricks 2" type="Node2D" parent="."]
+
+transform/pos = Vector2( 227.893, 246.988 )
+transform/scale = Vector2( 1, 0.938983 )
+
+[node name="brick" type="Sprite" parent="Bricks 2"]
+
+transform/pos = Vector2( 16.7135, 48.3368 )
+transform/scale = Vector2( -2.12869, 1.45697 )
+texture = ExtResource( 3 )
+vframes = 2
+hframes = 2
+
+[node name="brick1" type="Sprite" parent="Bricks 2"]
+
+transform/pos = Vector2( 83.7135, 48.3368 )
+transform/scale = Vector2( -2.12869, 1.45697 )
+texture = ExtResource( 3 )
+vframes = 2
+hframes = 2
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Bricks 2"]
+
+transform/pos = Vector2( 95.0814, 153.265 )
+input/pickable = false
+shapes/0/shape = SubResource( 3 )
+shapes/0/transform = Matrix32( 0.727755, 0, 0, 1.2924, -79.0758, -106.191 )
+shapes/0/trigger = false
+shapes/1/shape = SubResource( 3 )
+shapes/1/transform = Matrix32( 0.727755, 0, 0, 1.2924, -11.1297, -106.192 )
+shapes/1/trigger = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bricks 2/StaticBody2D"]
+
+transform/pos = Vector2( -79.0758, -106.191 )
+transform/scale = Vector2( 0.727755, 1.2924 )
+shape = SubResource( 3 )
+trigger = false
+_update_shape_index = 0
+
+[node name="CollisionShape2D1" type="CollisionShape2D" parent="Bricks 2/StaticBody2D"]
+
+transform/pos = Vector2( -11.1297, -106.192 )
+transform/scale = Vector2( 0.727755, 1.2924 )
+shape = SubResource( 3 )
+trigger = false
+_update_shape_index = 1
 
 
